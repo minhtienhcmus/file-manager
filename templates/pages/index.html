@@ -1,0 +1,15 @@
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+  <h1>Danh sách biểu mẫu</h1>
+
+  <ul>
+    {% for form in forms %}
+      <li>
+        <a href="{% url 'forms:edit' form.id %}">{{ form.name }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+
+  <a href="{% url 'create' %}">Tạo mới</a>
+{% endblock %}

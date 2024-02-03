@@ -1,0 +1,35 @@
+{% extends 'layouts/base.html' %}
+
+{% block extrastyle %}
+<style>
+  ul li {
+    list-style-type: none;
+  }
+  .dot-separator {
+    height: 2px;
+    width: 2px;
+    background: #000;
+    border-radius: 50%;
+  }
+  .actions span {
+    cursor: pointer;
+  }
+  .modal {
+    z-index: 99999 !important;
+  }
+</style>
+{% endblock extrastyle %}
+
+{% block content %}
+  <h1>Tạo mới biểu mẫu</h1>
+
+  <form action="{% url 'store' %}" method="post">
+    {% csrf_token %}
+    <div class="inputs" style="margin: 1em; padding: 1em; justify-content: space-between;">
+      <input type="text" name="name" placeholder="Tên biểu mẫu" style="display: block; width: 900px; margin-bottom: 20px;">
+      <input type="text" name="label" placeholder="Nhãn biểu mẫu" style="display: block; width: 900px; margin-bottom: 20px;">
+      <textarea name="content" placeholder="Nội dung biểu mẫu" style="display: block; width: 900px; margin-bottom: 20px;"></textarea>
+      <input type="submit" value="Tạo mới" style="display: block; width: 100px; margin-bottom: 20px;">
+    </div>
+  </form>
+{% endblock %}

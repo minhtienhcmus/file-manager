@@ -1,0 +1,49 @@
+{% extends 'layouts/base.html' %}
+{% load static file_extension info_value %}
+
+{% block extrastyle %}
+<style>
+  ul li {
+    list-style-type: none;
+  }
+  .dot-separator {
+    height: 2px;
+    width: 2px;
+    background: #000;
+    border-radius: 50%;
+  }
+  .actions span {
+    cursor: pointer;
+  }
+  .modal {
+    z-index: 99999 !important;
+  }
+</style>
+{% endblock extrastyle %}
+
+{% block content %}
+<h1>Danh sách biểu mẫu</h1>
+
+  <ul>
+    {% for form in forms %}
+      <li>
+        <a href="{% url 'forms:edit' form.id %}">{{ form.name }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+  <p style="text-indent: 10px;">
+    <a href="{% url 'create' %}" class="button">
+      <span class="text">Tạo mới</span>
+    </a>
+  </p>
+  
+  
+{% endblock content %}
+
+{% block extrascripts %}
+
+<script>
+
+</script>
+
+{% endblock extrascripts %}
